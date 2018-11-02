@@ -1,0 +1,34 @@
+The Absolute Minimum every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets! (No Excuses!)
+
+- Unaccented english characters
+	- ASCII - able to represent every character using a number between 32 and 127 (7 bits)
+	- during that time, computers used 8bit bytes
+	- codes belowe 32 were called unprintable (control characters)
+	- 128 -255 were FREE! (Different languages used 128 above for their own chars)
+	- ANSI standard - everything from 127 below standardized, everything above = code pages
+
+- UNICODE
+	- effort to create a single character set that included every reasonable writing system on the planet
+	- misconception: UNICODE is simply a 16-bit code where each character takes 16 bits and therefore there are 65,536 posible characters - NOT!
+	- a letter maps to a code point
+	- every letter in every alphabet is assigned a magic number: a code point eg U+0639
+	- U means unicode, numbers are hexadecimal
+	- no real limit on the number of letters that Unicode can define!
+
+- ENCODINGS
+	- how to store this in memory?
+	- Unicode byte order mark (FE FF) 
+	- store those numbers (code points) in two bytes! (Led to the myth of Unicode as using 16 bits)
+	- high-endian/low-endian mode (00 at the front or at the end) -> 2 encodings!
+	- led to the bizarre convention of storing a FE FF at the beginning of every unicode string (Unicode byte order mark)
+
+- UTF-8
+	- every code point from 0-127 is stored in a single byte
+	- code points 128 above are stored using 2-6 bytes
+
+- Ways of encoding Unicode
+	- UCS-2 (2 bytes) (high-endian/low-endian UCS-2)
+	- UTF-16 (16 bits)
+	- UTF-8
+	- UTF-7 (lot like UTF-8 but guarantees that the high bit will always be zero)
+	- UTF-4
