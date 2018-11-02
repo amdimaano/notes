@@ -11,3 +11,7 @@
 11. Log
 12. @Bean vs @Component
 13. String concatenation vs StringBuilder vs StringBuffer
+
+
+java transient
+- marker keyword to ignore fields of a class during serialization. This means that the value for a field marked as transient will not be persisted (set to null, or default value)
